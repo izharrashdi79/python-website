@@ -1,0 +1,142 @@
+'''Design a recipe calculator that adjusts ingredient quantities based on the 
+number of servings. Use variables to store recipe ingredients and amounts, and write 
+expressions to calculate adjusted quantities.'''
+
+recipe = {}
+serving = int(input("Enter the Number of Servings: "))
+while True:
+    ingredient = input("enter the ingredients / Person: ").lower()
+    ingredient_quantity = int(input("Enter the quantity of ingredient / Person: "))
+    recipe[ingredient] = ingredient_quantity
+    users_input = input("Do you want to add More ingredients: ").lower()
+    if users_input == "no":
+        break
+
+print("Adjusted Recipe for", serving, "servings:")
+for ingredient, quantity in recipe.items():
+    adjusted_quantity = (serving * quantity)
+    print(f"{ingredient}: {adjusted_quantity} units")
+
+
+
+'''Create a program that recommends movies based on user 
+preferences. Use variables to store genre, rating, and release year. Write expressions to 
+compare movies and suggest matches'''
+
+my_genre = input("Enter the genre ")
+my_rating = float(input("Enter the rating "))
+
+movies = {
+    "animal": {
+        "genre":"action",
+           "rating": 6.4,
+           "released year": 2023
+    },
+    "3 idiots":{
+        "genre": "comedy",
+        "rating": 8.4,
+        "released year": 2009
+    },
+    "spiderman":{
+        "genre":"fantasy",
+        "rating": 7.4,
+        "released year": 2002
+    }
+
+}
+found_movies = []
+
+for movie_name, details in movies.items():
+    if details['genre'] == my_genre and details['rating'] >= my_rating:
+        found_movies.append(movie_name)
+
+if found_movies:
+    print("Recommended movies based on your preferences:",found_movies)
+else:
+    print("No matching movies found.")
+
+
+
+
+
+
+'''Fitness Tracker: You're building a fitness tracker app. Create variables to store daily steps, 
+distance walked, and calories burned. Write expressions to calculate average steps per week 
+and total distance covered in a month.'''
+
+calories_burn = 0
+total_steps = 0 
+distance_walked = 0
+for _ in range(30):
+    steps = int(input("enter the steps "))
+    total_steps += (steps)
+    distance = int(input("enter the distance walked "))
+    distance_walked += (distance)
+    calories_burn += (steps) * 0.1
+print("the total steps are",total_steps)
+print("Average Steps in a week are",total_steps / 7)
+print("the total Distance Walked is",distance_walked) 
+print("the total calories Burn are ",calories_burn)
+
+
+
+
+
+'''Write a program to manage a shopping list. Use variables to store item names, 
+quantities, and prices. Calculate the total cost of items and check if you have enough budget.'''
+
+item_name = []
+quantities_of_items = 0
+prices_of_items = 0
+total_cost = 0
+budget = int(input("Enter your Budget "))
+
+while True:
+    item = input("Enter the name of items ")
+    item_name.append(item)
+
+    quantity = int(input("Enter the Quantity of items "))
+    quantities_of_items += quantity
+
+    price = int(input("Enter the Price "))
+    prices_of_items += price
+
+    total = price * quantity
+    total_cost += total
+
+    user_input = input("add more items yes/no ")
+    if user_input == "no":
+        break
+
+if total_cost <= budget:
+    print("You can Purchase")
+else:
+    print("Insufficient Balance")
+
+print("The Items are ",item_name)
+print("The Quantities of Items are ",quantities_of_items)
+print("the total cost of the items is  ", total_cost)
+
+
+'''Develop a tool to track time spent on various activities. Use variables to 
+store task names and durations. Write expressions to calculate total time spent on each task and 
+identify areas for improvement.'''
+
+my_activities = []
+my_durations = []
+
+while True:
+    activities = input("enter the activities ").lower()
+    my_activities.append(activities)
+    duration = int(input("Enter the duration in minutes "))
+    my_durations.append(duration)
+    users_input = input("do you want to add more activities yes/no ").lower()
+    if users_input == "no":
+        break
+
+print("Your Activities are",my_activities)
+print("The Durations are ",my_durations)
+print("The Total time You spent on the activities are ",sum(my_durations))
+for i in range(len(my_durations)):
+    if my_durations[i] >= 60:
+        print("Spent less time on", my_activities[i])
